@@ -37,7 +37,8 @@ const nextPosition = (position, right, down) => {
 const countTrees = (rows, right, down) => {
   const module = rows[0].length;
   let position = [0, 0];
-  return Array(rows.length - 1).fill(1).reduce((acc) => {
+  const iteration = Math.floor((rows.length - 1) / down)
+  return Array(iteration).fill(1).reduce((acc) => {
     position = nextPosition(position, right, down)
     const row = rows[position[1]]
     const index = position[0] % module
